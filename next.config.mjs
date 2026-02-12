@@ -1,4 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "oaidalleapiprodscus.blob.core.windows.net",
+      },
+      {
+        protocol: "https",
+        hostname: "api.screenshotone.com",
+      },
+      {
+        protocol: "https",
+        hostname: "dalleprodsec.blob.core.windows.net",
+      },
+    ],
+  },
+};
 
 export default nextConfig;
