@@ -434,11 +434,15 @@ footer{background:#060606;border-top:1px solid var(--g2);padding:64px 60px 48px}
   .pg-wrap,.pain-wrap,.svc-wrap,.proc-wrap,.cta-wrap,.rv-wrap{padding:0 20px}
   .project-item{width:100%;margin-top:0!important}
   .project-grid{gap:40px}
-  .pain-block-open{grid-template-columns:1fr}
+  .pain-block-open{grid-template-columns:1fr;padding:60px 0}
+  .pain-block-open:first-of-type{padding-top:60px}
   .pain-vis-wrap{display:none}
-  .svc-header{grid-template-columns:1fr}
-  .feature{flex-direction:column;text-align:center;padding:24px 20px;min-height:auto}
-  .feature-content{text-align:center;padding-left:0;margin-top:10px}
+  .svc-header{grid-template-columns:1fr;text-align:left;align-items:start}
+  .svc-note{text-align:left}
+  .feature{flex-wrap:wrap;flex-direction:row;text-align:left;padding:20px 16px;min-height:auto;align-items:center}
+  .feature-icon{margin-right:12px;flex-shrink:0}
+  .feature-title{flex:1;white-space:normal;min-width:unset;text-align:left}
+  .feature-content{width:100%;text-align:left;padding-left:56px;margin-top:6px}
   .proc-grid{grid-template-columns:1fr}
   .cta-contacts{flex-direction:column;gap:32px}
   .fi{grid-template-columns:1fr}
