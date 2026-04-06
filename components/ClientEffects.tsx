@@ -139,15 +139,15 @@ export default function ClientEffects() {
 
       async function loop() {
         if (!isVisible) return
-        wrap.classList.remove('converged'); hideShooter(); resetRays()
+        w.classList.remove('converged'); hideShooter(); resetRays()
         await spread(); if (!isVisible) return
         await delay(400); if (!isVisible) return
         await converge(); if (!isVisible) return
-        wrap.classList.add('converged')
+        w.classList.add('converged')
         await delay(300); if (!isVisible) return
         await shoot(); if (!isVisible) return
         await delay(500); if (!isVisible) return
-        wrap.classList.remove('converged'); hideShooter()
+        w.classList.remove('converged'); hideShooter()
         await delay(400)
         if (isVisible) loop()
       }
@@ -155,10 +155,10 @@ export default function ClientEffects() {
       const obs = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) { isVisible = true; loop() }
-          else { isVisible = false; wrap.classList.remove('converged'); hideShooter(); resetRays() }
+          else { isVisible = false; w.classList.remove('converged'); hideShooter(); resetRays() }
         })
       }, { threshold: 0.4 })
-      obs.observe(wrap)
+      obs.observe(w)
     })()
 
     // ── Hero typing ──
