@@ -41,28 +41,28 @@ export default function Home() {
             <div className="rv"><span className="sec-label">03 — Our Work</span></div>
             <div className="project-grid" id="projectGrid">
               <div className="project-item">
-                <a href="#" className="project-link">
+                <a href="https://www.behance.net/gallery/207157553/Flowing-Dating-App-UIUX-Design" className="project-link" target="_blank" rel="noopener noreferrer">
                   <img src="https://mgpxqmqvlbjfywbbsiwt.supabase.co/storage/v1/object/public/images/flowing.png" className="project-img" alt="FLOWING" />
                 </a>
                 <div className="project-meta">WEB/APP</div>
                 <div className="project-title">FLOWING</div>
               </div>
               <div className="project-item">
-                <a href="#" className="project-link">
+                <a href="https://somemooddesign.com/" className="project-link" target="_blank" rel="noopener noreferrer">
                   <img src="https://mgpxqmqvlbjfywbbsiwt.supabase.co/storage/v1/object/public/images/somemooddesign.png" className="project-img" alt="SOMEMOODDESIGN" />
                 </a>
                 <div className="project-meta">Ecommerce WEB</div>
                 <div className="project-title">SOMEMOODDESIGN</div>
               </div>
               <div className="project-item">
-                <a href="#" className="project-link">
+                <a href="https://lafco.co.kr/" className="project-link" target="_blank" rel="noopener noreferrer">
                   <img src="https://mgpxqmqvlbjfywbbsiwt.supabase.co/storage/v1/object/public/images/lafco.png" className="project-img" alt="LAFCO" />
                 </a>
                 <div className="project-meta">Ecommerce WEB</div>
                 <div className="project-title">LAFCO</div>
               </div>
               <div className="project-item">
-                <a href="#" className="project-link">
+                <a href="https://laikin.co.kr/index.html" className="project-link" target="_blank" rel="noopener noreferrer">
                   <img src="https://mgpxqmqvlbjfywbbsiwt.supabase.co/storage/v1/object/public/images/laikin.png" className="project-img" alt="LAiKiN" />
                 </a>
                 <div className="project-meta">Ecommerce WEB</div>
