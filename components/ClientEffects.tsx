@@ -163,8 +163,9 @@ export default function ClientEffects() {
 
     // ── Hero typing ──
     ;(function () {
-      const el = document.getElementById('htCycle')
-      if (!el) return
+      const elRaw = document.getElementById('htCycle')
+      if (!elRaw) return
+      const el = elRaw
       const words = ['AI?', '로고?', '광고?']
       let wi = 0, ci = 0, del = false
       function tick() {
