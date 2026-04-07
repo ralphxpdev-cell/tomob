@@ -439,9 +439,10 @@ footer{background:#060606;border-top:1px solid var(--g2);padding:64px 60px 48px}
   .pain-vis-wrap{display:none}
   .svc-header{grid-template-columns:1fr;text-align:left;align-items:start}
   .svc-note{text-align:left}
-  .feature{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:12px;row-gap:10px;padding:20px 16px;min-height:auto;align-items:center}
-  .feature-icon{grid-column:1;grid-row:1;margin-right:0}
-  .feature-title{grid-column:2;grid-row:1;white-space:normal;min-width:unset;text-align:left}
+  .feature{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:12px;row-gap:10px;padding:20px 16px;min-height:auto;align-items:start;overflow:visible}
+  .feature-icon{grid-column:1;grid-row:1;width:44px;height:44px;margin-right:0;flex-shrink:0}
+  .feature-icon-img{width:44px!important;height:44px!important}
+  .feature-title{grid-column:2;grid-row:1;white-space:normal;min-width:unset;text-align:left;align-self:center}
   .feature-content{grid-column:1/-1;grid-row:2;text-align:left;padding-left:0;margin-top:0;flex:none}
   .proc-grid{grid-template-columns:1fr}
   .cta-contacts{flex-direction:column;gap:32px}
