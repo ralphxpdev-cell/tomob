@@ -7,7 +7,7 @@ export default function Home() {
           <a href="#portfolio" className="nl">Work</a>
           <a href="#service" className="nl">Service</a>
           <a href="#process" className="nl">Process</a>
-          <a href="#cta" className="ncta">무료 점검받기</a>
+          <a href="https://open.kakao.com/o/shXjXCqi" className="ncta" target="_blank" rel="noopener">무료 점검받기</a>
         </div>
       </nav>
 
@@ -31,7 +31,7 @@ export default function Home() {
               </span><br />
               <em>방향성</em>부터 봅니다.
             </h1>
-            <a href="#cta" className="hcta">무료 점검받기 →</a>
+            <a href="https://open.kakao.com/o/shXjXCqi" className="hcta" target="_blank" rel="noopener">무료 점검받기 →</a>
           </div>
         </section>
 
@@ -281,12 +281,12 @@ export default function Home() {
               토모브는 새로운 시각과 해결책을 제공합니다.<br />
               무료.
             </p>
-            <a href="mailto:contact@tomob.kr" className="cta-btn">무료 상담 신청하기 ›</a>
+            <a href="https://open.kakao.com/o/shXjXCqi" className="cta-btn" target="_blank" rel="noopener">카카오로 무료 상담하기 ›</a>
           </div>
           <div className="cta-contacts">
             <div>
               <div className="ccl">Contact us</div>
-              <a href="mailto:contact@tomob.kr" className="ccv">contact@tomob.kr</a>
+              <a href="https://open.kakao.com/o/shXjXCqi" className="ccv" target="_blank" rel="noopener">카카오 무료 상담</a>
             </div>
             <div>
               <div className="ccl">Project Contact</div>
@@ -304,7 +304,7 @@ export default function Home() {
               <div className="fl-sns">
                 <a href="https://instagram.com/tomob" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <div className="fl-div"></div>
-                <a href="mailto:contact@tomob.kr">@tomob</a>
+                <a href="https://open.kakao.com/o/shXjXCqi" target="_blank" rel="noopener">@tomob</a>
               </div>
               <div className="fl-biz">
                 서울시 노원구 덕릉로70가길 101 103동 203호<br />
