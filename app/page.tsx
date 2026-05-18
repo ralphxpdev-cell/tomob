@@ -41,7 +41,7 @@ export default function Home() {
             <div className="rv"><span className="sec-label">03 — Our Work</span></div>
             <div className="project-grid" id="projectGrid">
               <div className="project-item">
-                <a href="https://www.behance.net/gallery/207157553/Flowing-Dating-App-UIUX-Design" className="project-link" target="_blank" rel="noopener noreferrer">
+                <a href="/work/flowing.html" className="project-link">
                   <img src="https://mgpxqmqvlbjfywbbsiwt.supabase.co/storage/v1/object/public/images/flowing.png" className="project-img" alt="FLOWING" />
                 </a>
                 <div className="project-meta">WEB/APP</div>
