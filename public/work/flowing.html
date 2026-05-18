@@ -118,6 +118,20 @@ nav::before{
 }
 .accordion-body-inner.single{grid-template-columns:1fr;max-width:620px}
 .accordion-text{font-size:.9rem;color:var(--g8);line-height:1.9}
+.accordion-label{
+  font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--red);margin-bottom:4px;
+}
+.accordion-quote-wrap{display:flex;flex-direction:column;gap:0}
+.accordion-quote{
+  font-size:.88rem;color:var(--gb);line-height:1.9;
+  border-left:2px solid var(--red);padding-left:20px;
+  font-style:italic;
+}
+.accordion-quote-name{
+  font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;
+  color:var(--g6);margin-top:12px;padding-left:20px;
+}
 .accordion-link{
   display:inline-flex;align-items:center;gap:8px;margin-top:24px;
   font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;
@@ -255,8 +269,33 @@ nav::before{
         <span class="accordion-icon">+</span>
       </button>
       <div class="accordion-body">
-        <div class="accordion-body-inner single">
-          <p class="accordion-text">플로잉은 외모 중심의 기존 데이팅앱에서 벗어나, 가치관과 라이프스타일 기반으로 사람을 연결하는 앱입니다. 브랜드 아이덴티티부터 핵심 화면 설계까지 전 과정을 담당했습니다.</p>
+        <div class="accordion-body-inner">
+          <div>
+            <p class="accordion-text">최근 2030 세대는 데이팅 앱을 사용할 때 외모나 조건보다는 진정성과 가치관을 더 중요하게 생각하는 경향이 강해지고 있어요. 많은 사용자들이 외모 중심 매칭에 한계를 느끼고, 서로의 감정과 가치관을 깊이 있게 나눌 수 있는 관계를 원하고 있어요.</p>
+            <p class="accordion-text" style="margin-top:16px">지금 당장 연애를 하지 않더라도, 자연스러운 만남을 추구하면서 나와 맞는 가치관의 상대방을 찾는 사람들이 플로잉의 타겟이에요.</p>
+          </div>
+          <div>
+            <p class="accordion-text">유저들이 이성을 피드를 통해 탐색할 수 있도록 설계했습니다. 다른 이성들이 올린 피드와 프로필을 확인한 후, 채팅 신청을 통해 매칭이 이루어지도록 설계되었습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" data-accordion>
+      <button class="accordion-trigger" onclick="toggleAcc(this)">
+        <span class="accordion-title">User Research</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <div>
+            <p class="accordion-label">Sincere · Inner Trust · Emotional Connection</p>
+            <p class="accordion-text" style="margin-top:12px">사용자들은 외적인 조건보다 가치관과 내면의 소통을 중요시하며, 진정성 있는 관계를 선호해요. 외모보다 내면의 신뢰와 공감을 기반으로 한 관계를 추구하며, 감정적 교류와 가치관 공유를 통해 더 깊이 있는 만남을 원하고 있어요.</p>
+          </div>
+          <div class="accordion-quote-wrap">
+            <p class="accordion-quote">"온라인 소개팅 서비스에서 만나기 어려운 이유는 상대방에 대해 잘 모르기 때문인 것 같아요. 상대방이 어떠한 가치관을 가지고 있는지, 어떤 삶을 살고 있는지 조금 더 정보가 많았으면 좋겠어요."</p>
+            <span class="accordion-quote-name">— Ji hyun</span>
+          </div>
         </div>
       </div>
     </div>
@@ -268,23 +307,16 @@ nav::before{
       </button>
       <div class="accordion-body">
         <div class="accordion-body-inner">
-          <p class="accordion-text">"연결보다 공명." 첫인상이 아닌 공통된 감각이 두 사람을 잇는다는 개념을 시각 언어로 풀어냈습니다. 색감과 타이포그래피 모두 감성적 온도를 기준으로 설계했습니다.</p>
-          <p class="accordion-text">기존 앱들의 스와이프 피로를 해소하기 위해 인터랙션 흐름을 최소화하고, 정보 밀도보다 여백과 리듬감을 우선했습니다.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item" data-accordion>
-      <button class="accordion-trigger" onclick="toggleAcc(this)">
-        <span class="accordion-title">Retrospective</span>
-        <span class="accordion-icon">+</span>
-      </button>
-      <div class="accordion-body">
-        <div class="accordion-body-inner single">
-          <p class="accordion-text">감성적 브랜딩과 실용적 UX의 균형이 핵심 과제였습니다. 온보딩 플로우를 3회 이상 개선하며 이탈률을 줄이는 방향으로 완성했고, 이 과정에서 사용자 감정 흐름을 먼저 설계하는 방법론을 정립할 수 있었습니다.</p>
-          <a href="https://www.behance.net/gallery/207157553/Flowing-Dating-App-UIUX-Design" target="_blank" rel="noopener" class="accordion-link">
-            Behance에서 전체 보기 →
-          </a>
+          <div>
+            <p class="accordion-text">플로잉은 외모나 조건이 아닌, 가치관을 더 중요하게 생각하는 서비스입니다. 기존의 외모·경제력 중심의 매칭 방식에서 벗어나, 서로의 가치관이 맞는 사람들을 연결하기 위해 시작된 서비스예요.</p>
+          </div>
+          <div class="accordion-quote-wrap">
+            <p class="accordion-quote">"새로운 만남을 즐겨하지만 그래도 어느 정도 비슷하고 같은 취미를 즐겁게 할 수 있는 사람을 더 선호해요."</p>
+            <span class="accordion-quote-name">— Sung min</span>
+            <a href="https://www.behance.net/gallery/207157553/Flowing-Dating-App-UIUX-Design" target="_blank" rel="noopener" class="accordion-link" style="margin-top:20px">
+              Behance에서 전체 보기 →
+            </a>
+          </div>
         </div>
       </div>
     </div>
