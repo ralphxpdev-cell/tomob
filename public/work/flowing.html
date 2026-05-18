@@ -145,6 +145,10 @@ nav::before{
   content:'IMG';font-family:var(--fm);font-size:.55rem;letter-spacing:.14em;color:var(--g4);
 }
 
+/* 흰 배경 이미지용 */
+.g-white{background:#fff}
+.g-white img{object-fit:contain}
+
 /* 갤러리 리빌 */
 .g-full,.g-half{
   opacity:0;transform:translateY(32px);
@@ -292,24 +296,25 @@ nav::before{
 <div class="wrap">
   <div class="gallery">
     <div class="g-full">
-      <!-- <img src="images/flowing-01.jpg" alt=""> -->
-    </div>
-    <div class="g-half">
-      <div class="g-half-item"><!-- <img src="images/flowing-02.jpg" alt=""> --></div>
-      <div class="g-half-item"><!-- <img src="images/flowing-03.jpg" alt=""> --></div>
+      <img src="/port/flowing/1.avif" alt="FLOWING 히어로">
     </div>
     <div class="g-full">
-      <!-- <img src="images/flowing-04.jpg" alt=""> -->
+      <img src="/port/flowing/2.avif" alt="FLOWING 앱 화면">
     </div>
-    <div class="g-half">
-      <div class="g-half-item"><!-- <img src="images/flowing-05.jpg" alt=""> --></div>
-      <div class="g-half-item"><!-- <img src="images/flowing-06.jpg" alt=""> --></div>
+    <div class="g-full g-white">
+      <img src="/port/flowing/3.png" alt="온보딩 화면">
     </div>
-    <div class="g-full tall">
-      <!-- <img src="images/flowing-07.jpg" alt=""> -->
+    <div class="g-full g-white">
+      <img src="/port/flowing/4.png" alt="프로필 · 가치관 설정 화면">
     </div>
-    <div class="g-full">
-      <!-- <img src="images/flowing-08.jpg" alt=""> -->
+    <div class="g-full g-white">
+      <img src="/port/flowing/5.png" alt="프로필 사진 화면">
+    </div>
+    <div class="g-full g-white">
+      <img src="/port/flowing/6.png" alt="메인 채널 카테고리">
+    </div>
+    <div class="g-full g-white">
+      <img src="/port/flowing/7.png" alt="메인 화면 · 오늘의 추천">
     </div>
   </div>
 </div>
