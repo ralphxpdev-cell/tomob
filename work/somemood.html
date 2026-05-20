@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOMEMOODDESIGN — TOMOB Work</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --red:#E94318;--red-d:#C73810;
+  --black:#0A0A0A;--white:#fff;
+  --g1:#111;--g2:#1a1a1a;--g3:#222;--g4:#333;
+  --g6:#666;--g8:#888;--gb:#bbb;
+  --fd:'Bebas Neue',sans-serif;
+  --fb:'SUIT Variable','SUIT',sans-serif;
+  --fm:'DM Mono',monospace;
+  --nav:60px;--max:1200px;
+}
+
+body{background:var(--black);color:var(--white);font-family:var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+}
+nav::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(10,10,10,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.05);z-index:-1;
+}
+.nav-logo{font-family:var(--fd);font-size:1.05rem;letter-spacing:.08em}
+.nav-logo em{font-style:normal;color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-family:var(--fm);font-size:.65rem;letter-spacing:.1em;color:var(--g8);transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-back{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;
+  color:var(--g6);transition:color .2s;
+}
+.nav-back:hover{color:var(--white)}
+.nav-back::before{content:'←';font-size:.7rem}
+
+/* ─── WRAPPER ─── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+
+/* ─── PROJECT HEADER ─── */
+.proj-header{
+  padding-top:calc(var(--nav) + 72px);
+  padding-bottom:72px;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:80px;
+  align-items:start;
+}
+.proj-category{
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);
+  margin-bottom:20px;display:block;
+}
+.proj-title{
+  font-family:var(--fd);font-size:clamp(2.8rem,5vw,5rem);
+  line-height:1.05;letter-spacing:.01em;
+  margin-bottom:36px;color:var(--white);
+}
+.proj-meta{display:flex;flex-direction:column;gap:10px}
+.proj-meta-row{display:flex;gap:20px;align-items:baseline}
+.proj-meta-label{
+  font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--g6);min-width:90px;
+}
+.proj-meta-val{font-size:.82rem;color:var(--gb)}
+
+/* ─── SIDEBAR ─── */
+.proj-sidebar{
+  position:sticky;top:calc(var(--nav) + 40px);
+  display:flex;flex-direction:column;gap:0;
+}
+.sidebar-section{border-top:1px solid var(--g3);padding:20px 0}
+.sidebar-section:last-of-type{border-bottom:1px solid var(--g3)}
+.sidebar-toggle{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;
+}
+.sidebar-label{
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gb);
+}
+.sidebar-icon{
+  font-size:.75rem;color:var(--g6);
+  transition:transform .3s ease;
+}
+.sidebar-section.open .sidebar-icon{transform:rotate(45deg)}
+.sidebar-body{
+  font-size:.78rem;color:var(--g8);line-height:1.85;
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease, padding .3s ease;
+}
+.sidebar-section.open .sidebar-body{
+  max-height:400px;padding-top:14px;
+}
+.sidebar-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:24px;padding:10px 20px;
+  background:var(--g2);border:1px solid var(--g3);
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;
+  color:var(--gb);border-radius:3px;transition:border-color .2s,color .2s;
+}
+.sidebar-btn:hover{border-color:var(--red);color:var(--red)}
+
+/* ─── GALLERY ─── */
+.gallery{padding-bottom:120px}
+.g-full{
+  width:100%;aspect-ratio:16/9;
+  background:var(--g2);border-radius:4px;
+  overflow:hidden;margin-bottom:4px;
+}
+.g-full img{width:100%;height:100%;object-fit:cover;display:block}
+.g-half{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4px;margin-bottom:4px;
+}
+.g-half-item{
+  aspect-ratio:4/3;background:var(--g2);border-radius:4px;overflow:hidden;
+}
+.g-half-item img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ─── RELATED WORKS ─── */
+.related{padding:80px 0 120px}
+.related-header{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:32px;
+}
+.related-label{
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--g6);
+}
+.related-all{
+  font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;
+  color:var(--g6);transition:color .15s;
+}
+.related-all:hover{color:var(--white)}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.related-item{display:flex;flex-direction:column;gap:10px;cursor:pointer}
+.related-thumb{
+  aspect-ratio:4/3;background:var(--g2);border-radius:6px;
+  overflow:hidden;transition:transform .3s ease;
+}
+.related-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.related-item:hover .related-thumb{transform:translateY(-4px)}
+.related-cat{font-family:var(--fm);font-size:.52rem;letter-spacing:.1em;color:var(--g6);text-transform:uppercase}
+.related-name{font-family:var(--fd);font-size:1rem;letter-spacing:.04em;color:var(--white)}
+
+/* ─── MOBILE ─── */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .wrap{padding:0 20px}
+  .proj-header{
+    grid-template-columns:1fr;gap:48px;
+    padding-top:calc(var(--nav) + 48px);padding-bottom:48px;
+  }
+  .proj-sidebar{position:static}
+  .g-half{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-logo">TOMOB<em>.</em></a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#portfolio" class="active">Work</a>
+    <a href="../index.html#cta">Contact</a>
+  </div>
+  <a href="../index.html#portfolio" class="nav-back">All Work</a>
+</nav>
+
+<!-- PROJECT HEADER -->
+<div class="wrap">
+  <div class="proj-header">
+
+    <!-- LEFT -->
+    <div class="proj-left">
+      <span class="proj-category">Ecommerce WEB · Brand Identity</span>
+      <h1 class="proj-title">순간의 감정을<br>흘려보내지 않도록,<br>썸무드 디자인</h1>
+      <div class="proj-meta">
+        <div class="proj-meta-row">
+          <span class="proj-meta-label">Project Type</span>
+          <span class="proj-meta-val">쇼핑몰 구축 · 브랜드 아이덴티티</span>
+        </div>
+        <div class="proj-meta-row">
+          <span class="proj-meta-label">Period</span>
+          <span class="proj-meta-val">2024</span>
+        </div>
+        <div class="proj-meta-row">
+          <span class="proj-meta-label">Role</span>
+          <span class="proj-meta-val">Brand Strategy · UX/UI Design · Commerce Build</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="proj-sidebar">
+
+      <div class="sidebar-section open">
+        <div class="sidebar-toggle" onclick="toggleSection(this)">
+          <span class="sidebar-label">Overview</span>
+          <span class="sidebar-icon">+</span>
+        </div>
+        <div class="sidebar-body">
+          소중한 기록을 선물하는 브랜드, 썸무드 디자인. 브랜드의 감성과 철학이 온라인에서도 자연스럽게 스며들도록 기획하고 제작했습니다. 감성적인 기록 문화를 반영한 직관적인 UI와 브랜드의 개성을 살린 쇼핑몰을 구축했으며, 상세페이지에서도 감성을 유지해 제품 하나하나가 브랜드의 이야기를 담을 수 있도록 구축했습니다.
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-toggle" onclick="toggleSection(this)">
+          <span class="sidebar-label">Approach</span>
+          <span class="sidebar-icon">+</span>
+        </div>
+        <div class="sidebar-body">
+          "Recording keeps moments still." 사용자가 브랜드의 감성을 쉽게 경험하고 원하는 제품을 직관적으로 찾을 수 있도록, 주요 키워드를 활용한 탐색 방식을 적용했습니다. 단순한 카테고리가 아닌 감성적인 키워드를 중심으로 제품을 큐레이션해 쇼핑 자체가 하나의 감성적인 경험이 되도록 설계했습니다.
+        </div>
+      </div>
+
+      <a href="#" class="sidebar-btn" target="_blank" rel="noopener">
+        Behance에서 보기 ↗
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery wrap">
+
+  <!-- 히어로 — 웹사이트 풀컷 -->
+  <div class="g-full">
+    <img src="../port/somemood/4.png" alt="썸무드 디자인 웹사이트">
+  </div>
+
+  <!-- 제품 플랫레이 -->
+  <div class="g-full">
+    <img src="../port/somemood/1.png" alt="썸무드 디자인 제품">
+  </div>
+
+  <!-- 2열 — UI 목업 -->
+  <div class="g-half">
+    <div class="g-half-item">
+      <img src="../port/somemood/2.png" alt="썸무드 모바일·데스크탑 UI">
+    </div>
+    <div class="g-half-item">
+      <img src="../port/somemood/3.png" alt="썸무드 모바일 상세 화면">
+    </div>
+  </div>
+
+</div>
+
+<!-- RELATED WORKS -->
+<div class="wrap">
+  <div class="related">
+    <div class="related-header">
+      <span class="related-label">Design Works</span>
+      <a href="../index.html#portfolio" class="related-all">All View →</a>
+    </div>
+    <div class="related-grid">
+      <div class="related-item" onclick="location.href='flowing.html'">
+        <div class="related-thumb"></div>
+        <span class="related-cat">UX/UI Design · WEB/APP</span>
+        <span class="related-name">FLOWING</span>
+      </div>
+      <div class="related-item" onclick="location.href='lafco.html'">
+        <div class="related-thumb"></div>
+        <span class="related-cat">Ecommerce WEB</span>
+        <span class="related-name">LAFCO</span>
+      </div>
+      <div class="related-item" onclick="location.href='laikin.html'">
+        <div class="related-thumb"></div>
+        <span class="related-cat">Ecommerce WEB</span>
+        <span class="related-name">LAiKiN</span>
+      </div>
+      <div class="related-item" onclick="location.href='algocracy.html'">
+        <div class="related-thumb"></div>
+        <span class="related-cat">WEB/SAAS</span>
+        <span class="related-name">알고크라시</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSection(toggle) {
+  const section = toggle.closest('.sidebar-section');
+  section.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
