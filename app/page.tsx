@@ -48,7 +48,7 @@ export default function Home() {
                 <div className="project-title">FLOWING</div>
               </div>
               <div className="project-item">
-                <a href="https://somemooddesign.com/" className="project-link" target="_blank" rel="noopener noreferrer">
+                <a href="/work/somemood.html" className="project-link">
                   <img src="https://mgpxqmqvlbjfywbbsiwt.supabase.co/storage/v1/object/public/images/somemooddesign.png" className="project-img" alt="SOMEMOODDESIGN" />
                 </a>
                 <div className="project-meta">Ecommerce WEB</div>
