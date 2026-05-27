@@ -149,8 +149,8 @@ export default function Home() {
                     <line className="ray" data-x2="375" data-y2="200" x1="200" y1="130" x2="375" y2="200" stroke="#2a2a2a" strokeWidth="1"/>
                     <line className="ray" data-x2="360" data-y2="230" x1="200" y1="130" x2="360" y2="230" stroke="#2a2a2a" strokeWidth="1"/>
                     <line className="ray" data-x2="340" data-y2="250" x1="200" y1="130" x2="340" y2="250" stroke="#2a2a2a" strokeWidth="1"/>
-                    <line id="ray-shoot" x1="200" y1="130" x2="202" y2="130" stroke="#A8B4FF" strokeWidth="2" opacity="0"/>
-                    <rect className="diamond" x="188" y="118" width="24" height="24" fill="#A8B4FF" transform="rotate(45 200 130)"/>
+                    <line id="ray-shoot" x1="200" y1="130" x2="202" y2="130" stroke="#2595FF" strokeWidth="2" opacity="0"/>
+                    <rect className="diamond" x="188" y="118" width="24" height="24" fill="#2595FF" transform="rotate(45 200 130)"/>
                   </svg>
                   <div className="vis-radiate-label">방향성</div>
                 </div>
