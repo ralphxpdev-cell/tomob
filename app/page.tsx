@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <>
       <nav>
-        <a href="#" className="logo">TOMOB<em>.</em></a>
+        <a href="#" className="logo"><img src="/logowhite.png" alt="TOMOB" style={{height:'28px',width:'auto'}} /></a>
         <div className="nav-r">
           <a href="#portfolio" className="nl">Work</a>
           <a href="#service" className="nl">Service</a>
@@ -149,8 +149,8 @@ export default function Home() {
                     <line className="ray" data-x2="375" data-y2="200" x1="200" y1="130" x2="375" y2="200" stroke="#2a2a2a" strokeWidth="1"/>
                     <line className="ray" data-x2="360" data-y2="230" x1="200" y1="130" x2="360" y2="230" stroke="#2a2a2a" strokeWidth="1"/>
                     <line className="ray" data-x2="340" data-y2="250" x1="200" y1="130" x2="340" y2="250" stroke="#2a2a2a" strokeWidth="1"/>
-                    <line id="ray-shoot" x1="200" y1="130" x2="202" y2="130" stroke="#E94318" strokeWidth="2" opacity="0"/>
-                    <rect className="diamond" x="188" y="118" width="24" height="24" fill="#E94318" transform="rotate(45 200 130)"/>
+                    <line id="ray-shoot" x1="200" y1="130" x2="202" y2="130" stroke="#A8B4FF" strokeWidth="2" opacity="0"/>
+                    <rect className="diamond" x="188" y="118" width="24" height="24" fill="#A8B4FF" transform="rotate(45 200 130)"/>
                   </svg>
                   <div className="vis-radiate-label">방향성</div>
                 </div>
@@ -299,7 +299,7 @@ export default function Home() {
         <footer>
           <div className="fi">
             <div>
-              <div className="fl-logo">TOMOB<em>.</em></div>
+              <div className="fl-logo"><img src="/logowhite.png" alt="TOMOB" style={{height:'32px',width:'auto'}} /></div>
               <div className="fl-tag">방향성부터 봅니다.</div>
               <div className="fl-sns">
                 <a href="https://instagram.com/tomob" target="_blank" rel="noopener noreferrer">Instagram</a>
