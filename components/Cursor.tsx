@@ -1,8 +1,16 @@
 'use client'
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Cursor() {
+  const pathname = usePathname()
+  /* /ax는 커스텀 커서를 쓰지 않는다. CSS로 숨기기만 하면 rAF 루프가 계속 돌아
+     히어로 WebGL과 프레임을 다툰다. 아예 렌더하지 않는다. */
+  const skip = pathname?.startsWith('/ax') ?? false
+
   useEffect(() => {
+    if (skip) return
+
     const dot = document.getElementById('cursor-dot')
     const ring = document.getElementById('cursor-ring')
     if (!dot || !ring) return
@@ -45,7 +53,9 @@ export default function Cursor() {
       document.removeEventListener('mouseenter', onEnter)
       cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [skip])
+
+  if (skip) return null
 
   return (
     <>

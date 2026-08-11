@@ -1,0 +1,21 @@
+# Vercel 업로드 제외 — 2026-08-11
+# 앱이 참조하지 않는 작업 파일들이다. public/ 밖이라 어차피 서빙되지 않는다.
+# (검증: *.tsx/ts/css/js에서 `image/` 참조 0건)
+
+image/
+port/
+영업/
+마케팅/
+sessions/
+collaboration/
+scripts/
+.github/
+
+*.psd
+*.log
+*.md
+ax-current-full.png
+ax-desktop.png
+ax-mobile.png
+tsconfig.tsbuildinfo
+명함_유경탁.jpg

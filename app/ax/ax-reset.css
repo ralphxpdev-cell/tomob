@@ -1,0 +1,53 @@
+/*
+ * /ax 전용 전역 되돌리기.
+ *
+ * 메인 사이트 app/globals.css가 element 선택자로 전역을 잡고 있어 /ax까지 새어든다.
+ *   body { background: var(--black); color: var(--white); font-family: SUIT }
+ *   nav  { position: fixed; ... }
+ *   footer { background: #060606; ... }
+ *   *    { cursor: none !important }
+ * /ax는 흰 배경의 독립 랜딩이므로 이 라우트에서만 되돌린다.
+ * CSS Modules는 순수 선택자만 허용하므로 일반 CSS로 분리했다.
+ */
+
+body:has([data-ax-page]) {
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: 'Pretendard Variable', Pretendard, system-ui, -apple-system, sans-serif;
+}
+
+body:has([data-ax-page]) *,
+body:has([data-ax-page]) *::before,
+body:has([data-ax-page]) *::after {
+  cursor: auto !important;
+}
+
+[data-ax-page] a,
+[data-ax-page] button,
+[data-ax-page] summary {
+  cursor: pointer !important;
+}
+
+/* 메인 사이트의 커스텀 커서(파란 점 + 따라오는 링)를 /ax에서는 끈다.
+   2026-08-10 사령관 지시: "동그란 점 따라오는 거" 제거. 메인 사이트에는 그대로 둔다. */
+body:has([data-ax-page]) #cursor-dot,
+body:has([data-ax-page]) #cursor-ring {
+  display: none !important;
+}
+
+/* globals.css의 nav::before(어두운 고정 바)를 /ax에서는 제거한다 */
+[data-ax-page] nav::before {
+  content: none;
+  display: none;
+}
+
+/* globals.css footer 다크 배경 제거 */
+[data-ax-page] footer {
+  background: transparent;
+  border-top: 0;
+}
+
+/* :has 미지원 브라우저 대비 — 페이지 래퍼가 배경을 직접 칠한다 */
+[data-ax-page] {
+  background: #ffffff;
+}

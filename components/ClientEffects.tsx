@@ -1,8 +1,15 @@
 'use client'
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function ClientEffects() {
+  const pathname = usePathname()
+  /* 아래 블록은 전부 메인 사이트 DOM(.project-item, #page, #radiate-lines, #htCycle)을 찾는다.
+     /ax에서는 대부분 조기 반환하지만 앵커 스크롤 핸들러가 /ax 내비까지 가로챈다. 라우트에서 통째로 끈다. */
+  const skip = pathname?.startsWith('/ax') ?? false
+
   useEffect(() => {
+    if (skip) return
 
     // ── Portfolio stagger ──
     const pItems = document.querySelectorAll<HTMLElement>('.project-item')
@@ -194,7 +201,7 @@ export default function ClientEffects() {
     return () => {
       cancelAnimationFrame(rafScroll)
     }
-  }, [])
+  }, [skip])
 
   return null
 }

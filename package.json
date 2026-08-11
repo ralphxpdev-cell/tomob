@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "ax:telegram:dry-run": "node scripts/notify-ax-telegram.mjs --dry-run"
   },
   "dependencies": {
     "next": "^15.1.0",

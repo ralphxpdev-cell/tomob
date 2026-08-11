@@ -24,6 +24,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css"
           rel="stylesheet"
         />
+        {/* /ax 랜딩 폰트 — Pretendard 하나만 쓴다.
+            2026-08-11: 첫 페인트 9.8초를 잡으면서 렌더 블로킹 스타일시트를 줄였다.
+              Geist          — /ax가 Pretendard 단독으로 바뀌어 미사용 (Wordmark.tsx 되살릴 때만 필요)
+              Instrument Serif / Nanum Myeongjo — 히어로 진술문 제거로 미사용
+            둘 다 링크를 뺐다. 되살릴 일이 생기면 여기에 다시 넣는다. */}
+        <link
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+          rel="stylesheet"
+        />
       </head>
       <body>
         <Cursor />
