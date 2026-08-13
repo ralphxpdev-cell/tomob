@@ -316,7 +316,7 @@ export default function AxPage() {
             <a href="#ax-work">만든 것</a>
             <a href="#ax-flow">진행 방식</a>
           </div>
-          <a className={styles.navCta} href={CONTACT} target="_blank" rel="noopener noreferrer">
+          <a className={styles.navCta} href={CONTACT}>
             무료 30분 점검
           </a>
         </div>
@@ -341,7 +341,7 @@ export default function AxPage() {
             실제로 운영되는 웹 시스템과 자동화로 바꿉니다.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.pill} href={CONTACT} target="_blank" rel="noopener noreferrer">
+            <a className={styles.pill} href={CONTACT}>
               무료 30분 점검
             </a>
             <a className={styles.ghost} href="#ax-services">
@@ -616,7 +616,7 @@ export default function AxPage() {
             절감률은 쓰지 않습니다.
           </p>
           <div className={styles.actions}>
-            <a className={styles.pill} href={CONTACT} target="_blank" rel="noopener noreferrer">
+            <a className={styles.pill} href={CONTACT}>
               무료 30분 점검
             </a>
             <a className={styles.ghost} href="#ax-work">
@@ -676,8 +676,6 @@ export default function AxPage() {
               <a
                 className={e.primary ? styles.pill : styles.ghost}
                 href={CONTACT}
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 {e.cta}
               </a>
@@ -723,7 +721,7 @@ export default function AxPage() {
           <p className={styles.ctaSub}>
             30분이면 지금 사람이 메우고 있는 업무와 자동화 가능 범위를 함께 확인할 수 있습니다.
           </p>
-          <a className={styles.pill} href={CONTACT} target="_blank" rel="noopener noreferrer">
+          <a className={styles.pill} href={CONTACT}>
             무료 30분 점검
           </a>
         </div>
@@ -739,7 +737,7 @@ export default function AxPage() {
             <p className={styles.footerCopy}>사람을 더 뽑기 전에, 일이 새는 구조부터.</p>
             <a href="mailto:tomobstudio@gmail.com">tomobstudio@gmail.com</a>
             {/* CTA 목적지는 2026-08-10에 카카오 오픈채팅 → Seed 접수 포털로 바뀌었다. 라벨도 맞춘다. */}
-            <a href={CONTACT} target="_blank" rel="noopener noreferrer">
+            <a href={CONTACT}>
               업무 점검 신청 <span aria-hidden="true">↗</span>
             </a>
           </div>
