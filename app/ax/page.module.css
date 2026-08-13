@@ -1195,6 +1195,143 @@
   color: var(--ink-mute);
 }
 
+/* ── 결과 받기 (2026-08-13 신설) ─────────────────────────
+   판정 문구 아래에 붙는 수집구. 면·선·라운드는 위 .painItem 과 같은 값을 쓴다. */
+
+.painForm {
+  margin-top: 14px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.painFormLead {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.painFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.painField {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.painFields .painField {
+  margin-bottom: 0;
+}
+
+.painField > span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.painField input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  transition: border-color 0.18s ease;
+}
+
+.painField input::placeholder {
+  color: var(--ink-mute);
+}
+
+.painField input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.painConsent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 12px;
+  cursor: pointer;
+}
+
+.painConsent input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.painConsent strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.painConsentTerms {
+  display: block;
+  margin-top: 5px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--ink-mute);
+}
+
+.painSubmit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.painSubmit:hover {
+  background: var(--accent-ink);
+}
+
+.painSubmit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.painError {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: #b42318;
+}
+
+.painDone {
+  margin: 14px 0 0;
+  padding: 20px;
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  background: var(--accent-soft);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--ink);
+}
+
 /* ── BEFORE / AFTER ────────────────────────────────────── */
 
 .changeList {
@@ -1914,8 +2051,17 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .painList {
+  .painList,
+  .painFields {
     grid-template-columns: 1fr;
+  }
+
+  .painFields .painField + .painField {
+    margin-top: 12px;
+  }
+
+  .painForm {
+    padding: 20px;
   }
 
   /* 좁은 화면에서 Before/After를 좌우로 두면 각 칸이 읽히지 않는다. 위아래로 쌓는다. */
