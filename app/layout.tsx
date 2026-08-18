@@ -1,13 +1,37 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Cursor from '@/components/Cursor'
 import Intro from '@/components/Intro'
 import ClientEffects from '@/components/ClientEffects'
 
+const SITE_URL = 'https://www.tomob.cloud'
+const SITE_TITLE = 'TOMOB — 브랜드부터 봅니다.'
+const SITE_DESC = '브랜딩, 웹사이트, 마케팅을 아우르는 AI 에이전시, 토모브'
+
 export const metadata: Metadata = {
-  title: 'TOMOB — 브랜드부터 봅니다.',
-  description: '브랜딩, 웹사이트, 마케팅을 아우르는 AI 에이전시, 토모브',
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESC,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: SITE_URL,
+    siteName: 'TOMOB',
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: SITE_TITLE }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: ['/og-image.png'],
+  },
+  // 네이버 서치어드바이저 · 구글 서치콘솔 사이트 소유확인 코드가 발급되면 여기 채운다.
+  // verification: { other: { 'naver-site-verification': '' }, google: '' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -39,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Intro />
         {children}
         <ClientEffects />
+        <Analytics />
         {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">{`
           !function(f,b,e,v,n,t,s)
