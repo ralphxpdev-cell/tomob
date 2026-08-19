@@ -11,10 +11,29 @@ import PainCheck from './PainCheck'
  * 2026-08-11 사령관 "전체적인 카피들이 너무 거지같아" — 확정 기획안을 안 쓰고 임의 문장을 넣었던 것이
  * 원인이었다. 아래 문구는 전부 그 기획안 §4에서 가져온다. 새로 지어내지 않는다.
  */
+const AX_TITLE = 'TOMOB AX — AI가 아니라, 구조가 먼저입니다'
+const AX_DESC =
+  'TOMOB는 문의, 고객관리, 견적, 보고처럼 대표와 직원의 시간을 반복해서 가져가는 업무를 찾아 실제로 운영되는 웹 시스템과 자동화로 바꿉니다.'
+
 export const metadata: Metadata = {
-  title: 'TOMOB AX — 사람을 더 뽑기 전에, 일이 새는 구조부터 바꿉니다',
-  description:
-    'TOMOB는 문의, 고객관리, 견적, 보고처럼 대표와 직원의 시간을 반복해서 가져가는 업무를 찾아 실제로 운영되는 웹 시스템과 자동화로 바꿉니다.',
+  title: AX_TITLE,
+  description: AX_DESC,
+  alternates: { canonical: '/ax' },
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: '/ax',
+    siteName: 'TOMOB AX',
+    title: AX_TITLE,
+    description: AX_DESC,
+    images: [{ url: '/ax/og-image.png', width: 1200, height: 630, alt: AX_TITLE }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: AX_TITLE,
+    description: AX_DESC,
+    images: ['/ax/og-image.png'],
+  },
 }
 
 /**
@@ -124,7 +143,7 @@ const services = [
     title: 'FIND',
     kr: '업무를 먼저 이해합니다',
     items: ['현재 흐름과 예외 상황 확인', '자동화할 일과 사람이 판단할 일 구분', '성공 기준 합의'],
-    body: '어떤 도구를 쓸지는 나중 문제입니다. 지금 무엇이 반복되고 어디서 시간이 새는지부터 봅니다.',
+    body: '어떤 도구를 쓸지는 나중 문제입니다. 지금 무엇이 반복되고 어디서 시간이 가장 오래 걸리는지부터 봅니다.',
   },
   {
     no: '02',
@@ -267,7 +286,7 @@ const faqs = [
   ],
   [
     '직원을 줄이기 위한 서비스인가요?',
-    '해고를 목적으로 설계하지 않습니다. 채용을 결정하기 전에 현재 인력이 반복 작업에 쓰는 시간을 줄이고, 더 중요한 업무에 투입할 수 있는지 확인합니다.',
+    '해고를 목적으로 설계하지 않습니다. 지금 인력이 반복 작업에 쓰는 시간을 줄이고, 더 중요한 업무에 투입할 수 있는지 확인하는 것이 목적입니다.',
   ],
   [
     '기존에 쓰는 엑셀이나 카톡을 바꿔야 하나요?',
@@ -292,9 +311,12 @@ const tools = ['KAKAO', 'GOOGLE', 'NOTION', 'SLACK', 'EXCEL', 'GMAIL', 'SUPABASE
 /**
  * 상담·문의 CTA 목적지.
  * 2026-08-10 사령관 지시로 카카오톡 오픈채팅(`open.kakao.com/o/shXjXCqi`) → TOMOB Seed 접수 포털로 교체.
- * 페이지의 모든 CTA(내비 CONTACT, 히어로, 계약 방식 2종, 하단 CTA)가 이 한 곳을 쓴다.
+ * 2026-08-14 사령관 지시로 되돌림 — 다른 도메인(tomob-seed.vercel.app)으로 나가는 창이
+ * 뜨면 안 된다. tomob-studio 안의 자가진단 폼(PainCheck, TOMOB Ax 텔레그램으로 확인됨)으로
+ * 스크롤 이동시킨다. 페이지의 모든 CTA(내비 CONTACT, 히어로, 계약 방식 2종, 하단 CTA)가
+ * 이 한 곳을 쓴다.
  */
-const CONTACT = 'https://tomob-seed.vercel.app/request'
+const CONTACT = '#ax-pain'
 
 export default function AxPage() {
   return (
@@ -329,16 +351,16 @@ export default function AxPage() {
       <header className={styles.hero} id="ax-top">
         <HeroField className={styles.heroField} />
         <div className={styles.heroInner}>
-          <span className={styles.eyebrow}>채용 전 업무점검</span>
+          <span className={styles.eyebrow}>어디서부터 시작해야 할지 모르겠다면</span>
           <h1 className={styles.heroTitle}>
-            사람을 더 뽑기 전에,
+            AI가 아니라,
             <br />
-            <em>일이 새는 구조</em>부터 바꿉니다
+            <em>구조가 먼저입니다</em>
           </h1>
           <p className={styles.heroLead}>
-            문의, 고객관리, 견적, 보고처럼 대표와 직원의 시간을 반복해서 가져가는 업무를 찾아
+            문의·견적·보고처럼 반복되는 업무 하나를 먼저 살펴보고,
             <br />
-            실제로 운영되는 웹 시스템과 자동화로 바꿉니다.
+            실제로 작동하는 시스템으로 만듭니다.
           </p>
           <div className={styles.heroActions}>
             <a className={styles.pill} href={CONTACT}>
@@ -364,11 +386,11 @@ export default function AxPage() {
           이 섹션이 없어서 히어로 다음에 곧바로 우리 원칙이 나왔고, 그게 설득 실패의 첫 지점이었다. */}
       <section className={`${styles.section} ${styles.onPanel}`} id="ax-pain" data-reveal>
         <div className={styles.head}>
-          <span className={styles.kicker}>WHERE IT LEAKS</span>
+          <span className={styles.kicker}>SELF CHECK</span>
           <h2>
-            정말 사람이 부족한 걸까요,
+            정말 도구가 부족한 걸까요,
             <br />
-            아니면 일이 사람에게 너무 많이 기대고 있는 걸까요?
+            아니면 일하는 방식이 문제인 걸까요?
           </h2>
           <p>해당되는 항목을 눌러 보세요. 지금 사람이 메우고 있는 지점입니다.</p>
         </div>
@@ -380,8 +402,8 @@ export default function AxPage() {
         <p className={styles.label}>WHY TOMOB</p>
         <div className={styles.triBody}>
           <p className={styles.statement}>
-            자동화할 수 있다고, 모두 자동화하지 않습니다. 채용이 필요한 일과 구조를 바꿔야 하는 일을
-            먼저 나눕니다.
+            자동화할 수 있다고, 모두 자동화하지 않습니다. 도구만 넣으면 되는 일과 방식부터 바꿔야
+            하는 일을 먼저 나눕니다.
           </p>
           <div className={styles.toolNote}>
             <p>쓰던 도구를 버리게 하지 않습니다. 그 사이부터 연결합니다</p>
@@ -508,28 +530,36 @@ export default function AxPage() {
         </p>
 
         {/* 인수인계 트랙 — 위 문장을 글자로만 두지 않고 구조로 보여준다.
-            흔한 진행은 단계마다 인수인계로 끊기고, TOMOB는 같은 담당이 끝까지 지나간다.
-            움직이는 점은 장식이 아니라 "끊기지 않는다"를 실제로 보여주는 장치다.
-            뷰포트에 들어올 때만 돈다(Reveal이 붙이는 .isIn으로 켠다). */}
+            흔한 진행은 단계마다 인수인계로 끊기고(점선+X), TOMOB는 같은 담당이 끝까지 지나간다.
+            2026-08-14: 점이 글자 줄과 같은 높이에 있어 두 번 시도 모두 어색했다(가로지름/사라짐).
+            배달앱 배송현황 바 패턴(베이스 레일+채움+정지 마커+이동 점)을 참고해 글자 줄과
+            분리된 전용 트랙으로 재작업했다. .hoTrack은 위치 기준 래퍼, 실제 4단계 목록은
+            안의 .hoSteps(ol)다 — 레일/점을 li 형제로 두면 <ol> 마크업이 깨져서 분리했다. */}
         <div className={styles.handoff} data-reveal>
           <div className={styles.hoRow}>
             <span className={styles.hoWho}>흔한 진행</span>
-            <ol className={styles.hoTrack}>
-              <li>영업</li>
-              <li>기획</li>
-              <li>제작</li>
-              <li>운영</li>
-            </ol>
+            <div className={styles.hoTrack}>
+              <ol className={styles.hoSteps}>
+                <li>영업</li>
+                <li>기획</li>
+                <li>제작</li>
+                <li>운영</li>
+              </ol>
+            </div>
           </div>
           <div className={`${styles.hoRow} ${styles.hoRowOn}`}>
             <span className={styles.hoWho}>TOMOB</span>
-            <ol className={styles.hoTrack}>
-              <li>진단</li>
-              <li>설계</li>
-              <li>구축</li>
-              <li>운영</li>
+            <div className={styles.hoTrack}>
+              <span className={styles.hoRail} aria-hidden="true" />
+              <span className={styles.hoRailFill} aria-hidden="true" />
               <i className={styles.hoDot} aria-hidden="true" />
-            </ol>
+              <ol className={styles.hoSteps}>
+                <li>진단</li>
+                <li>설계</li>
+                <li>구축</li>
+                <li>운영</li>
+              </ol>
+            </div>
           </div>
           <p className={styles.hoNote}>
             <span aria-hidden="true" /> 표시는 담당이 바뀌며 맥락이 끊기는 지점입니다.
@@ -734,7 +764,7 @@ export default function AxPage() {
             <span className={styles.footerMark}>
               TOMOB<i>AX</i>
             </span>
-            <p className={styles.footerCopy}>사람을 더 뽑기 전에, 일이 새는 구조부터.</p>
+            <p className={styles.footerCopy}>AI가 아니라, 구조가 먼저입니다.</p>
             <a href="mailto:tomobstudio@gmail.com">tomobstudio@gmail.com</a>
             {/* CTA 목적지는 2026-08-10에 카카오 오픈채팅 → Seed 접수 포털로 바뀌었다. 라벨도 맞춘다. */}
             <a href={CONTACT}>

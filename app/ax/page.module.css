@@ -649,8 +649,14 @@
   color: var(--accent);
 }
 
+/* .hoTrack = 위치 기준 래퍼(div). 실제 4단계 목록은 그 안의 .hoSteps(ol)다.
+   레일(.hoRail)·점(.hoDot)을 li 형제로 두면 <ol> 안에 li가 아닌 자식이 생겨
+   마크업이 깨지므로, 목록과 트랙 그래픽을 아예 다른 엘리먼트로 분리했다. */
 .hoTrack {
   position: relative;
+}
+
+.hoSteps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
@@ -660,21 +666,22 @@
   list-style: none;
 }
 
-.hoTrack li {
+.hoSteps li {
   position: relative;
   padding: 8px 0;
   font-size: 13px;
   font-weight: 600;
   text-align: center;
   color: var(--ink-mute);
+  z-index: 2;
 }
 
-.hoRowOn .hoTrack li {
+.hoRowOn .hoSteps li {
   color: var(--ink);
 }
 
-/* 단계 사이 연결선. 흔한 진행은 점선으로 끊고, TOMOB는 실선으로 잇는다. */
-.hoTrack li:not(:first-child)::before {
+/* 단계 사이 연결선. 흔한 진행은 점선으로 끊는다(TOMOB 줄은 아래 별도 레일을 쓴다). */
+.hoRow:not(.hoRowOn) .hoSteps li:not(:first-child)::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -686,13 +693,8 @@
   z-index: 0;
 }
 
-.hoRowOn .hoTrack li:not(:first-child)::before {
-  border-top: 2px solid rgba(29, 78, 216, 0.35);
-  margin-top: -1px;
-}
-
 /* 끊기는 지점 표시 — 점선 한가운데 X자 */
-.hoRow:not(.hoRowOn) .hoTrack li:not(:first-child)::after {
+.hoRow:not(.hoRowOn) .hoSteps li:not(:first-child)::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -708,27 +710,66 @@
   z-index: 1;
 }
 
-/* 글자가 연결선 위로 오게 — 배경을 깔아 선을 끊는다 */
-.hoTrack li {
-  z-index: 2;
-}
-
-.hoTrack li::first-line {
+.hoRow:not(.hoRowOn) .hoSteps li::first-line {
   background: var(--paper);
 }
 
-/* 담당이 끝까지 지나가는 점. 뷰포트 밖에서는 멈춰 있는다. */
-.hoDot {
+/* TOMOB 줄 트랙 — 배달앱 배송현황 바처럼: 굵은 베이스 라인 + 지나간 구간 채움 +
+   또렷한 정지 마커 + 그 위를 도는 점. 글자 줄과는 34px 띄워 완전히 분리한다. */
+.hoRowOn .hoSteps {
+  padding-top: 34px;
+}
+
+.hoRail {
   position: absolute;
-  top: 50%;
+  top: 15px;
   left: 12.5%;
-  z-index: 3;
+  right: 12.5%;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(107, 122, 144, 0.18);
+}
+
+.hoRailFill {
+  position: absolute;
+  top: 15px;
+  left: 12.5%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: hoFill 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  animation-play-state: paused;
+}
+
+.handoff:global(.isIn) .hoRailFill {
+  animation-play-state: running;
+}
+
+.hoRowOn .hoSteps li::after {
+  content: '';
+  position: absolute;
+  top: -17.5px;
+  left: 50%;
   width: 9px;
   height: 9px;
   margin: -4.5px 0 0 -4.5px;
+  background: var(--paper);
+  border: 2px solid rgba(29, 78, 216, 0.5);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.hoDot {
+  position: absolute;
+  top: 16.5px;
+  left: 12.5%;
+  z-index: 3;
+  width: 13px;
+  height: 13px;
+  margin: -6.5px 0 0 -6.5px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.16);
+  box-shadow: 0 0 0 3px var(--paper);
   animation: hoTravel 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   animation-play-state: paused;
 }
@@ -753,6 +794,25 @@
   81%,
   100% {
     left: 87.5%;
+  }
+}
+
+@keyframes hoFill {
+  0%,
+  6% {
+    right: 87.5%;
+  }
+  27%,
+  33% {
+    right: 62.5%;
+  }
+  54%,
+  60% {
+    right: 37.5%;
+  }
+  81%,
+  100% {
+    right: 12.5%;
   }
 }
 
@@ -1236,7 +1296,8 @@
   color: var(--ink-soft);
 }
 
-.painField input {
+.painField input,
+.painField textarea {
   width: 100%;
   padding: 13px 14px;
   border: 1px solid var(--line);
@@ -1248,13 +1309,45 @@
   transition: border-color 0.18s ease;
 }
 
-.painField input::placeholder {
+.painField textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.painField input::placeholder,
+.painField textarea::placeholder {
   color: var(--ink-mute);
 }
 
-.painField input:focus {
+.painField input:focus,
+.painField textarea:focus {
   outline: none;
   border-color: var(--accent);
+}
+
+.painToolGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.painTool {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.painToolOn {
+  border-color: var(--accent);
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--accent);
 }
 
 .painConsent {
